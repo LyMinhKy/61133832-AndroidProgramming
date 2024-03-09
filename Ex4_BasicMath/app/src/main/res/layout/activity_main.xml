@@ -61,25 +61,29 @@
             android:layout_margin="4dp"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:onClick="PhepCong"
             android:text="+"/>
         <Button
             android:id="@+id/btnTru"
             android:layout_margin="4dp"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="-"/>
+            android:text="-"
+            android:onClick="PhepTru"/>
         <Button
             android:id="@+id/btnNhan"
             android:layout_margin="4dp"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="*"/>
+            android:text="*"
+            android:onClick="PhepNhan"/>
         <Button
             android:id="@+id/btnChia"
             android:layout_margin="4dp"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="/"/>
+            android:text="/"
+            android:onClick="PhepChia"/>
     </LinearLayout>
 
     <LinearLayout
