@@ -43,6 +43,81 @@ public class MainActivity extends AppCompatActivity {
         double chieuCao = Double.parseDouble(chieucao);
         double canNang = Double.parseDouble(cannang);
 
-        double KQ=Math.round((canNang/Math.pow(chieuCao,2))*10.0)/10.0;
+        double BMI=Math.round((canNang/Math.pow(chieuCao,2))*10.0)/10.0;
+
+        if(gtNam.isChecked()){
+            if(BMI<18.5){
+                String Kq = String.valueOf(BMI);
+                KQ.setText(Kq);
+                DG.setText("Cân nặng thấp (gầy)");
+            }
+            if(BMI>=18.5 && BMI <= 24.9){
+                String Kq = String.valueOf(BMI);
+                KQ.setText(Kq);
+                DG.setText("Bình thường");
+            }
+            if(BMI == 25){
+                String Kq = String.valueOf(BMI);
+                KQ.setText(Kq);
+                DG.setText("Thừa cân");
+            }
+            if(BMI > 25 && BMI <= 29.9){
+                String Kq = String.valueOf(BMI);
+                KQ.setText(Kq);
+                DG.setText("Tiền béo phì");
+            }
+            if(BMI > 30 && BMI <= 34.9){
+                String Kq = String.valueOf(BMI);
+                KQ.setText(Kq);
+                DG.setText("Béo phì độ I");
+            }
+            if(BMI > 35 && BMI <= 39.9){
+                String Kq = String.valueOf(BMI);
+                KQ.setText(Kq);
+                DG.setText("Béo phì độ II");
+            }
+            if(BMI>=40){
+                String Kq = String.valueOf(BMI);
+                KQ.setText(Kq);
+                DG.setText("Béo phì độ III");
+            }
+        }
+        else if(gtNu.isChecked()){
+            if(BMI<18.5){
+                String Kq = String.valueOf(BMI);
+                KQ.setText(Kq);
+                DG.setText("Cân nặng thấp (gầy)");
+            }
+            if(BMI>=18.5 && BMI <= 24.9){
+                String Kq = String.valueOf(BMI);
+                KQ.setText(Kq);
+                DG.setText("Bình thường");
+            }
+            if(BMI == 25){
+                String Kq = String.valueOf(BMI);
+                KQ.setText(Kq);
+                DG.setText("Thừa cân");
+            }
+            if(BMI > 25 && BMI <= 29.9){
+                String Kq = String.valueOf(BMI);
+                KQ.setText(Kq);
+                DG.setText("Tiền béo phì");
+            }
+            if(BMI > 30 && BMI <= 34.9){
+                String Kq = String.valueOf(BMI);
+                KQ.setText(Kq);
+                DG.setText("Béo phì độ I");
+            }
+            if(BMI > 35 && BMI <= 39.9){
+                String Kq = String.valueOf(BMI);
+                KQ.setText(Kq);
+                DG.setText("Béo phì độ II");
+            }
+            if(BMI>=40){
+                String Kq = String.valueOf(BMI);
+                KQ.setText(Kq);
+                DG.setText("Béo phì độ III");
+            }
+        }
     }
 }
