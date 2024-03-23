@@ -1,6 +1,7 @@
 package ntu.MSSV61133832.cau2_appbmi;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -34,5 +35,14 @@ public class MainActivity extends AppCompatActivity {
         KQ=(TextView) findViewById(R.id.txtKQ);
         DG=(TextView) findViewById(R.id.txtDG);
     }
+    void TinhBMI(View v){
+        //Chuyển dữ liệu sang chuỗi
+        String chieucao = Chieuccao.getText().toString();
+        String cannang = Cannang.getText().toString();
+        //Chuyển dữ liệu chuỗi sang số
+        double chieuCao = Double.parseDouble(chieucao);
+        double canNang = Double.parseDouble(cannang);
 
+        double KQ=Math.round((canNang/Math.pow(chieuCao,2))*10.0)/10.0;
+    }
 }

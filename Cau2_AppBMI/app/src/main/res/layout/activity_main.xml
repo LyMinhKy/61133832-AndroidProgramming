@@ -107,6 +107,7 @@
             android:layout_height="wrap_content"
             android:text="Tính BMI"
             android:textSize="25sp"
+            android:onClick="TinhBMI"
             />
     </LinearLayout>
 
