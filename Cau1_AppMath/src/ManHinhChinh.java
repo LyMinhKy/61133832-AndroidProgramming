@@ -82,5 +82,12 @@ public class ManHinhChinh extends JFrame {
 	}
 	void PTB2() {
 		//Lấy dữ liệu từ điều khiển
+		String soA=txtA.getText();
+		String soB=txtB.getText();
+		String soC=txtC.getText();
+		//Chuyển kiểu dữ liệu
+		Double SoA=Double.parseDouble(soA);
+		Double SoB=Double.parseDouble(soB);
+		Double SoC=Double.parseDouble(soC);
 	}
 }
