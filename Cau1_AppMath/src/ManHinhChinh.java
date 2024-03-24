@@ -64,7 +64,7 @@ public class ManHinhChinh extends JFrame {
 		contentPane.add(lblKtQu);
 		
 		txtKQ = new JTextField();
-		txtKQ.setEnabled(false);
+		txtKQ.setEditable(false);
 		txtKQ.setColumns(10);
 		txtKQ.setBounds(286, 280, 214, 29);
 		contentPane.add(txtKQ);
@@ -98,7 +98,7 @@ public class ManHinhChinh extends JFrame {
 			txtKQ.setText("Nghiệm x1 = "+x1+", x2 = "+x2 );
 		}else if(delta==0) {
 			double x = -B/2*A;
-			txtKQ.setText("Nghiệm kép x= "+x);
+			txtKQ.setText("Nghiệm kép x1=x2= "+x);
 		}else {
 			txtKQ.setText("Phương trình vô nghiệm");
 		}
