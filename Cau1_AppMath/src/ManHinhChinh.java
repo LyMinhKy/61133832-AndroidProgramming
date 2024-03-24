@@ -86,8 +86,21 @@ public class ManHinhChinh extends JFrame {
 		String soB=txtB.getText();
 		String soC=txtC.getText();
 		//Chuyển kiểu dữ liệu
-		Double SoA=Double.parseDouble(soA);
-		Double SoB=Double.parseDouble(soB);
-		Double SoC=Double.parseDouble(soC);
+		double A=Double.parseDouble(soA);
+		double B=Double.parseDouble(soB);
+		double C=Double.parseDouble(soC);
+		//Tính Delta
+		double delta=B*B-4*A*C;
+		//Tính nghiệm
+		if(delta>0) {
+			double x1=(-B+Math.sqrt(delta))/(2*A);
+			double x2=(-B-Math.sqrt(delta))/(2*A);
+			txtKQ.setText("Nghiệm x1 = "+x1+", x2 = "+x2 );
+		}else if(delta==0) {
+			double x = -B/2*A;
+			txtKQ.setText("Nghiệm kép x= "+x);
+		}else {
+			txtKQ.setText("Phương trình vô nghiệm");
+		}
 	}
 }
