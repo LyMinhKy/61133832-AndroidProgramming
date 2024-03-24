@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ManHinhChinh extends JFrame {
 
@@ -68,8 +70,17 @@ public class ManHinhChinh extends JFrame {
 		contentPane.add(txtKQ);
 		
 		JButton btnGiai = new JButton("Giải");
+		btnGiai.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Xử lý phép toán ở đây
+				PTB2();
+			}
+		});
 		btnGiai.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnGiai.setBounds(345, 233, 85, 29);
 		contentPane.add(btnGiai);
+	}
+	void PTB2() {
+		
 	}
 }
