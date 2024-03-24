@@ -81,6 +81,6 @@ public class ManHinhChinh extends JFrame {
 		contentPane.add(btnGiai);
 	}
 	void PTB2() {
-		
+		//Lấy dữ liệu từ điều khiển
 	}
 }
