@@ -25,6 +25,13 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         TimDieuKhien();
+
+        Tinh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TinhBMI(v);
+            }
+        });
     }
     void TimDieuKhien(){
         Chieuccao=(EditText) findViewById(R.id.edtChieucao);
@@ -40,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         String chieucao = Chieuccao.getText().toString();
         String cannang = Cannang.getText().toString();
         //Chuyển dữ liệu chuỗi sang số
-        double chieuCao = Double.parseDouble(chieucao);
+        double chieuCao = Double.parseDouble(chieucao)/100;
         double canNang = Double.parseDouble(cannang);
 
         double BMI=Math.round((canNang/Math.pow(chieuCao,2))*10.0)/10.0;
