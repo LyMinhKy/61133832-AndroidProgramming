@@ -48,7 +48,8 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.ItemCities
 
     @Override
     public int getItemCount() {
-        return 0;
+
+        return listData.size();
     }
 
     class ItemCitiesHolder extends RecyclerView.ViewHolder{
