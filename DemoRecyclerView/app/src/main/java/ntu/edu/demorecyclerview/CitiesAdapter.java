@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -52,13 +53,28 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.ItemCities
         return listData.size();
     }
 
-    class ItemCitiesHolder extends RecyclerView.ViewHolder{
+    class ItemCitiesHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvCaption;
         ImageView ivCities;
         public ItemCitiesHolder(@NonNull View itemView) {
             super(itemView);
             tvCaption = itemView.findViewById(R.id.textViewCaption);
             ivCities = itemView.findViewById(R.id.imageViewCity);
+            itemView.setOnClickListener(this);
+        }
+        //xử lý sự kiện OnClick
+        @Override
+        public void onClick(View v) {
+            //Lấy vị trí item đc click dùng getApdapterPosition
+            int clickposition = getAdapterPosition();
+            //lấy phần tử được chọn
+            Cities city = listData.get(clickposition);
+            //bọc thông tin
+            String ten = city.getCitiesCaption();
+            String tenFile = city.getCitiesImageFileName();
+            //Toast tên
+            String thongBao="Bạn vừa chọn: " + ten;
+            Toast.makeText(v.getContext(),thongBao,Toast.LENGTH_SHORT).show();
         }
     }
 }
