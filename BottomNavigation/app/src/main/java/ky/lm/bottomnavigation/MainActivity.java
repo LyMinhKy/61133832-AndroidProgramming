@@ -2,6 +2,7 @@ package ky.lm.bottomnavigation;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -9,44 +10,52 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnItemSelectedListener{
-    BottomNavigationView bottomNavigationView;
+
+
+public class MainActivity extends AppCompatActivity {
+    private BottomNavigationView bottomNavigationView;
+    private FrameLayout frameLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnItemSelectedListener(this);
-        bottomNavigationView.setSelectedItemId(R.id.home);
+        frameLayout = findViewById(R.id.flFragment);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem Item) {
+                int itemId = Item.getItemId();
+                if(itemId==R.id.home){
+                    loadFragment(new HomeFragment(),false);
+                }else if(itemId==R.id.profile){
+                    loadFragment(new ProfileFragment(),false);
+                }else {
+                    loadFragment(new SettingsFragment(),false);
+                }
+                loadFragment(new HomeFragment(), true);
+                return true;
+            }
+        });
 
     }
-    HomeFragment homeFragment = new HomeFragment();
-    ProfileFragment profileFragment = new ProfileFragment();
-    SettingsFragment settingsFragment = new SettingsFragment();
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch (menuItem.getItemId()){
-            case R.id.home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.bottomNavigationView,homeFragment).commit();
-                return true;
-            case R.id.profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.bottomNavigationView,profileFragment).commit();
-                return true;
-            case R.id.setting:
-                getSupportFragmentManager().beginTransaction().replace(R.id.bottomNavigationView,settingsFragment).commit();
-                return true;
+    private void loadFragment(Fragment fragment, boolean isAppInitialized){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if(isAppInitialized){
+            fragmentTransaction.add(R.id.flFragment, fragment);
+        }else{
+            fragmentTransaction.replace(R.id.flFragment, fragment);
         }
-        return false;
-    }
 
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
+        fragmentTransaction.commit();
     }
 }
