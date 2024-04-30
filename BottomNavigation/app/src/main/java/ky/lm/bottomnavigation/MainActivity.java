@@ -40,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
                 }else {
                     loadFragment(new SettingsFragment(),false);
                 }
-                loadFragment(new HomeFragment(), true);
+
                 return true;
             }
         });
-
+        loadFragment(new HomeFragment(), true);
     }
 
     private void loadFragment(Fragment fragment, boolean isAppInitialized){
