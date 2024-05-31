@@ -7,9 +7,6 @@ import android.widget.FrameLayout;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -35,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                     loadFragment(new Home_Fragment(),false );
                 }else if(itemId==R.id.cau1){
                     loadFragment(new Cau1_Fragment(),false );
-                }else if(itemId==R.id.cau2){
+                }else if(itemId==R.id.recycau2){
                     loadFragment(new Cau2_Fragment(),false );
                 }else if(itemId==R.id.cau3){
                     loadFragment(new Cau3_Fragment(),false );
