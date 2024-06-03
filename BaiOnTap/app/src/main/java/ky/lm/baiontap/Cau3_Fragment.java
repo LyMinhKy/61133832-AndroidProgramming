@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 
@@ -27,6 +28,7 @@ public class Cau3_Fragment extends Fragment {
     ListView lv;
     ArrayList<String> ds;
     ArrayAdapter<String> adapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -38,9 +40,9 @@ public class Cau3_Fragment extends Fragment {
         //Gọi hàm tiến hành copy csdl từ Assets vào thư mục db trong bo nhớ cài đặt ứng dụng
         //processCopy();
         database = getActivity().openOrCreateDatabase("qlsach.db",MODE_PRIVATE,null);
+
+
+
         return viewcau3;
-
-         
     }
-
 }
